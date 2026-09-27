@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Wumpus World</title>
+
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+  <link rel="stylesheet" href="styles.css" />
+</head><body>
+
+  <header class="hud">
+    <div class="hud-left">
+      <span class="torch">◆</span>
+      <h1>WUMPUS WORLD</h1>
+    </div>
+    <div class="hud-stats">
+      <div class="stat">
+        <span class="stat-label">Score</span>
+        <span class="stat-value" id="score">0</span>
+      </div>
+      <div class="stat">
+        <span class="stat-label">Arrow</span>
+        <span class="stat-value" id="arrow-status">not found</span>
+      </div>
+      <div class="stat">
+        <span class="stat-label">Gold</span>
+        <span class="stat-value" id="gold-status">-</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="layout">
+
+  <!-- LEFT -->
+  <aside class="panel panel-left">
+
+    <div class="panel-block">
+      <h2>Legend</h2>
+
+      <ul class="legend">
+        <li>
+          <span class="tile-swatch swatch-breeze"></span>
+          Breeze : a pit is near
+        </li>
+
+        <li>
+          <span class="tile-swatch swatch-stench"></span>
+          Stench : the Wumpus is near
+        </li>
+
+        <li>
+          <span class="tile-swatch swatch-glitter"></span>
+          Glitter : gold underfoot
+        </li>
+
+        <li>
+          <span class="tile-swatch swatch-exit"></span>
+          Exit : climb out with the gold
+        </li>
+      </ul>
+
+      <p class="hint">
+        Sensed rooms show a labeled box for each thing you feel there.
+      </p>
+    </div>
+
+
+    <div class="panel-block">
+      <h2>Scoring</h2>
+
+      <ul class="scoring">
+        <li>
+          <span>Escape with gold</span>
+          <span>+1000</span>
+        </li>
+
+        <li>
+          <span>Death</span>
+          <span>−1000</span>
+        </li>
+
+        <li>
+          <span>Each move</span>
+          <span>−1</span>
+        </li>
+
+        <li>
+          <span>Wumpus killed</span>
+          <span>+10</span>
+        </li>
+
+        <li>
+          <span>Arrow missed</span>
+          <span>−10</span>
+        </li>
+      </ul>
+    </div>
+
+  </aside>
+
+
+  <!-- CENTER -->
+  <section class="board-wrap">
+
+    <div id="board" class="board"></div>
+
+    <p id="percepts" class="percepts"></p>
+
+  </section>
+
+
+  <!-- RIGHT -->
+  <aside class="panel panel-right">
+
+    <div class="panel-block">
+      <h2>New expedition</h2>
+
+      <label class="field">
+        <span>Cave size</span>
+
+        <input
+          id="grid-size"
+          type="range"
+          min="4"
+          max="10"
+          value="6"
+        />
+
+        <span id="grid-size-label">6 × 6</span>
+      </label>
+
+      <button id="new-game" class="btn btn-primary">
+        Descend
+      </button>
+    </div>
+
+
+    <div class="panel-block">
+      <h2>Controls</h2>
+
+      <p class="hint">
+        First press faces that direction.
+        Press the same direction again to move.
+      </p>
+
+      <div class="dpad">
+
+        <button
+          id="dir-up"
+          class="btn dpad-up"
+          title="Face / move up (W or ↑)"
+        >↑</button>
+
+        <button
+          id="dir-left"
+          class="btn dpad-left"
+          title="Face / move left (A or ←)"
+        >←</button>
+
+        <button
+          id="dir-down"
+          class="btn dpad-down"
+          title="Face / move down (S or ↓)"
+        >↓</button>
+
+        <button
+          id="dir-right"
+          class="btn dpad-right"
+          title="Face / move right (D or →)"
+        >→</button>
+
+      </div>
+
+      <button
+        id="shoot-arrow"
+        class="btn btn-danger"
+        title="Shoot arrow (Space)"
+      >
+        Shoot arrow
+      </button>
+
+      <p class="hint">Space to shoot</p>
+
+    </div>
+
+  </aside>
+
+</main>
+
+  <div id="overlay" class="overlay hidden">
+    <div class="overlay-card">
+      <h2 id="overlay-title">Game Over</h2>
+      <p id="overlay-message"></p>
+      <p class="overlay-score">Final score: <span id="overlay-score">0</span></p>
+      <button id="restart-btn" class="btn btn-primary">Restart</button>
+    </div>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>

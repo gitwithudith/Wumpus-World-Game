@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+
+  <!-- Background -->
+  <rect width="64" height="64" rx="12" fill="#0b0a09"></rect>
+
+  <!-- Wumpus silhouette -->
+  <path d="M15 43
+       C13 37 14 27 18 21
+       C22 15 29 12 36 13
+       C44 14 50 20 51 28
+       C52 35 49 42 45 47
+       L38 51
+       L25 51
+       Z" fill="#24201b" stroke="#c87932" stroke-width="2.5" stroke-linejoin="round"></path>
+
+  <!-- Eyes -->
+  <circle cx="27" cy="29" r="3" fill="#e59a4d"></circle>
+
+  <circle cx="39" cy="29" r="3" fill="#e59a4d"></circle>
+
+  <!-- Pupils -->
+  <circle cx="27" cy="29" r="1.2" fill="#0b0a09"></circle>
+
+  <circle cx="39" cy="29" r="1.2" fill="#0b0a09"></circle>
+
+  <!-- Mouth -->
+  <path d="M23 39
+       Q32 46 41 39" fill="none" stroke="#e8dfcf" stroke-width="2" stroke-linecap="round"></path>
+
+  <!-- Fangs -->
+  <path d="M27 40 L29 46 L31 41" fill="#e8dfcf"></path>
+
+  <path d="M33 41 L35 46 L37 40" fill="#e8dfcf"></path>
+
+</svg>
